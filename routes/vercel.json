@@ -1,0 +1,35 @@
+{
+    "version": 2,
+    "builds": [
+      {
+        "src": "index.js",
+        "use": "@vercel/node"
+      }
+    ],
+    "routes": [
+      {
+        "src": "/api/signup",
+        "dest": "/routes/signup.js"
+      },
+      {
+        "src": "/api/login",
+        "dest": "/routes/login.js"
+      },
+      {
+        "src": "/api/users",
+        "dest": "/routes/users.js"
+      },
+      {
+        "src": "/(.*)",
+        "dest": "/index.js"
+      }
+    ],
+    "env": {
+      "MONGODB_URI": "@mongodb-uri"
+    },
+    "envSecrets": {
+      "mongodb-uri": {
+        "$$secret": "mongodb-uri"
+      }
+    }
+  }
